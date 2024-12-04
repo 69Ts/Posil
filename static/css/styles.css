@@ -1,0 +1,451 @@
+html, body  {
+    margin: 0; /* Убираем все отступы */
+    padding: 0; /* Убираем все внутренние отступы */
+    height: 100%; /* Высота на 100% */
+    width: 100%; /* Ширина на 100% */
+    overflow: hidden; /* Убираем прокрутку */
+    font-family: Arial, sans-serif;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-overflow-scrolling: touch;
+}
+#content {
+    position: relative;
+    text-align: center;
+    color: #fff;
+    height: 100vh; /* Высота экрана */
+    width: 100%; /* Ширина экрана */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1; /* Фон под содержимым */
+    overflow: hidden;
+}
+.menu-btn {
+    position: absolute;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 1rem;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+    text-align: center;
+    z-index: 10;
+}
+.menu-btn:hover {
+    background: rgba(255, 255, 255, 0.8);
+    color: #000;
+}
+.top-left {
+    top: calc(env(safe-area-inset-top, 0px) + 20px); /* 20px + верхний отступ */
+    left: calc(env(safe-area-inset-left, 0px) + 20px); /* 20px + левый отступ */
+}
+
+.top-right {
+    top: calc(env(safe-area-inset-top, 0px) + 20px); /* 20px + верхний отступ */
+    right: calc(env(safe-area-inset-right, 0px) + 20px); /* 20px + правый отступ */
+}
+
+.bottom-left {
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 20px); /* 20px + нижний отступ */
+    left: calc(env(safe-area-inset-left, 0px) + 20px); /* 20px + левый отступ */
+}
+
+.bottom-right {
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 20px); /* 20px + нижний отступ */
+    right: calc(env(safe-area-inset-right, 0px) + 20px); /* 20px + правый отступ */
+}
+#about-tooltip {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 20;
+    text-align: center;
+    width: 90%; /* Адаптивная ширина */
+    max-width: 400px; /* Максимальная ширина */
+}
+
+#about-tooltip p {
+    margin: 10px 0;
+    font-size: 1rem;
+}
+
+#about-tooltip a {
+    color: #00f;
+    text-decoration: underline;
+}
+
+#about-tooltip button {
+    background: rgba(255, 255, 255, 0.8);
+    color: #000;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+#about-tooltip button:hover {
+    background: rgba(255, 255, 255, 1);
+}
+.tooltip-hidden {
+    display: none;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden; /* Убираем прокрутку */
+}
+#content {
+    position: relative;
+    height: 100vh; /* Высота экрана */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    padding: 20px;
+}
+#clock-hourly{
+    position: absolute;
+    top: 20px; /* Верхний правый угол */
+    right: 20px;
+    font-size: 1.5rem;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.6); /* Полупрозрачный фон */
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-align: center;
+    z-index: 10;
+    cursor: pointer;
+}
+
+#clock-hourly::after {
+    content: attr(title); /* Текст подсказки из атрибута title */
+    position: absolute;
+    top: 110%; /* Под часами */
+    right: 0;
+    background: rgba(0, 0, 0, 0.8); /* Тёмный фон подсказки */
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    opacity: 0; /* Скрыта по умолчанию */
+    pointer-events: none; /* Не мешает кликам */
+    transition: opacity 0.3s ease;
+    z-index: 15; /* Поверх всего */
+}
+#clock-hourly:hover::after {
+    opacity: 1; /* Показывается при наведении */
+}
+#clock-hourly:hover {
+    background: rgba(255, 255, 255, 0.8); /* Изменение фона при наведении */
+    color: #000; /* Текст становится чёрным */
+}
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+.tooltiptext {
+    visibility: hidden;
+    width: 150px; /* Ограничение ширины */
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+    position: absolute;
+    z-index: 15;
+    bottom: -60px; /* Расположение ниже часов */
+    right: 50%; /* Центрирование по горизонтали */
+    transform: translateX(50%); /* Центрируем */
+    font-size: 0.8rem;
+    white-space: normal; /* Разрешаем перенос текста */
+    line-height: 1.2; /* Межстрочный интервал */
+    opacity: 0; /* Невидимая по умолчанию */
+    transition: opacity 0.3s ease;
+}
+.tooltip:hover .tooltiptext,
+.tooltip:active .tooltiptext {
+    visibility: visible;
+    opacity: 1; /* Делаем видимой */
+}
+#upper-text {
+    font-size: 2rem;
+    margin-top: 20px;
+}
+#lower-text {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+.candle-container {
+    display: flex;
+    justify-content: center;
+}
+
+.candle {
+    position: absolute;
+    bottom: 20px; /* Отступ от нижнего края */
+    right: 20px; /* Отступ от правого края */
+    width: 100px; /* Уменьшите размер при необходимости */
+    height: auto;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden; /* Убираем прокрутку */
+}
+
+#content {
+    position: relative;
+    height: 100vh; /* Высота экрана */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.daily-content {
+    position: relative;
+    height: 100vh; /* Полная высота экрана */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Пространство между элементами */
+    padding: 20px;
+}
+#clock-daily {
+    position: absolute;
+    top: 20px; /* Верхний правый угол */
+    right: 20px;
+    font-size: 1.5rem;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.6); /* Полупрозрачный фон */
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-align: center;
+    z-index: 10;
+    cursor: pointer;
+}
+#clock-daily::after {
+    content: attr(title); /* Текст подсказки из атрибута title */
+    position: absolute;
+    top: 110%; /* Под часами */
+    right: 0;
+    background: rgba(0, 0, 0, 0.8); /* Тёмный фон подсказки */
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    opacity: 0; /* Скрыта по умолчанию */
+    pointer-events: none; /* Не мешает кликам */
+    transition: opacity 0.3s ease;
+    z-index: 15; /* Поверх всего */
+}
+#clock-daily:hover::after {
+    opacity: 1; /* Показывается при наведении */
+}
+#clock-daily:hover {
+    background: rgba(255, 255, 255, 0.8); /* Изменение фона при наведении */
+    color: #000; /* Текст становится чёрным */
+}
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+.tooltiptext {
+    visibility: hidden;
+    width: 150px; /* Ограничение ширины */
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+    position: absolute;
+    z-index: 15;
+    bottom: -60px; /* Расположение ниже часов */
+    right: 50%; /* Центрирование по горизонтали */
+    transform: translateX(50%); /* Центрируем */
+    font-size: 0.8rem;
+    white-space: normal; /* Разрешаем перенос текста */
+    line-height: 1.2; /* Межстрочный интервал */
+    opacity: 0; /* Невидимая по умолчанию */
+    transition: opacity 0.3s ease;
+}
+.tooltip:hover .tooltiptext,
+.tooltip:active .tooltiptext {
+    visibility: visible;
+    opacity: 1; /* Делаем видимой */
+}
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 18px;
+    padding: 10px 15px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    z-index: 10;
+}
+
+.back-button:hover {
+    background: rgba(255, 255, 255, 0.8);
+    color: #000;
+}
+
+.back-link {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.left-text {
+    position: absolute;
+    top: 20%; /* Расположение по вертикали */
+    left: 20px; /* Отступ от левого края */
+    font-size: 1.0rem;
+    color: #ffffff;
+    text-align: left;
+    max-width: 99%; /* Ограничение ширины */
+}
+/* Нижний текст */
+.bottom-text {
+    position: absolute;
+    bottom: 15%; /* Отступ от нижнего края */
+    left: 50%; /* Центрирование по горизонтали */
+    transform: translateX(-50%);
+    font-size: 0.6rem;
+    color: #ffffff;
+    text-align: center;
+    max-width: 100%; /* Ограничение ширины */
+    font-style: italic;
+}
+
+/* Ориентация и размер экрана */
+/* Медиазапросы для фонов и размеров для разных устройств */
+
+/* Для вертикального фона 9x16 */
+@media (orientation: portrait) and (max-aspect-ratio: 9/16) {
+    #background {
+        background-image: url('/static/images/bg-9x16.jpg'); /* Вертикальный 9:16 */
+    }
+    #clock {
+        font-size: 7vw; /* Увеличенные часы */
+    }
+}
+
+/* Для горизонтального фона 16x9 */
+@media (orientation: landscape) and (max-aspect-ratio: 16/9) {
+    #background {
+        background-image: url('/static/images/bg-16x9.jpg'); /* Горизонтальный 16:9 */
+    }
+    #clock {
+        font-size: 4vw; /* Уменьшенные часы */
+    }
+}
+
+/* Для вертикального фона 3x4 */
+@media (orientation: portrait) and (max-aspect-ratio: 3/4) {
+    #background {
+        background-image: url('/static/images/bg-3x4.jpg'); /* Вертикальный 3:4 */
+    }
+}
+
+/* Для горизонтального фона 4x3 */
+@media (orientation: landscape) and (max-aspect-ratio: 4/3) {
+    #background {
+        background-image: url('/static/images/bg-4x3.jpg'); /* Горизонтальный 4:3 */
+    }
+}
+
+/* Для устройств с большим экраном */
+@media (min-width: 1200px) {
+    #background {
+        background-image: url('/static/images/bg-16x9.jpg'); /* Десктопный фон */
+    }
+    #clock {
+        font-size: 3vw; /* Часы меньше для больших экранов */
+    }
+
+    /* Для больших экранов увеличим отступы, если нужно */
+    .top-left, .top-right {
+        top: 20px;
+    }
+    .bottom-left, .bottom-right {
+        bottom: 20px;
+    }
+}
+
+/* Для экранов 4K */
+@media (min-width: 3840px) {
+    #background {
+        background-image: url('/static/images/bg-4k.jpg'); /* Фон для 4K дисплеев */
+    }
+    #clock {
+        font-size: 2rem;
+        padding: 12px 18px;
+    }
+}
+
+/* Уменьшение размера часов на мобильных устройствах */
+@media (max-width: 768px) {
+    #clock-daily,
+    #clock-hourly {
+        font-size: 1.2rem;
+        padding: 8px 10px;
+    }
+    .menu-btn {
+        font-size: 0.9rem; /* Уменьшаем шрифт кнопок */
+        padding: 8px 15px; /* Уменьшаем отступы внутри кнопок */
+    }
+
+    .top-left, .top-right {
+        top: calc(env(safe-area-inset-top, 0px) + 10px); /* Уменьшаем верхний отступ */
+    }
+
+    .bottom-left, .bottom-right {
+        bottom: calc(env(safe-area-inset-bottom, 0px) + 10px); /* Уменьшаем нижний отступ */
+    }
+    .tooltiptext {
+        bottom: -50px; /* Расположение ниже */
+        font-size: 0.7rem;
+        max-width: 80%; /* Меньше подсказка */
+    }
+}

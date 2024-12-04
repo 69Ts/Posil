@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Посыл">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/images/favicon-16x16.png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon-16x16.ico') }}">
+    <title>Посыл</title>
+</head>
+<body>
+    <div id="background"></div>
+    <div id="content">
+        <a href="/daily" class="menu-btn top-left">Ежедневный посыл</a>
+        <a href="/hourly" class="menu-btn top-right">Часовой посыл</a>
+        <a href="https://blagayavest.info/novosti.html" target="_blank" class="menu-btn bottom-right">Сайт</a>
+        <button class="menu-btn bottom-left" onclick="showAbout()">О приложении</button>
+    </div> 
+    <div id="about-tooltip" class="tooltip-hidden">
+        <p>1. Программа создана людьми для людей.</p>
+        <p>2. Программа предназначена для совершения Посылов на Любовь и Духовное Единение. (<a href="https://blagayavest.info/Vremya-Posyla.html" target="_blank">Ссылка</a>)</p>
+        <p>3. При копировании материалов с Сайта ссылка на Первоисточник обязательна.</p>
+        <button onclick="hideAbout()">Закрыть</button>
+    </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="/static/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/images/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Часовой Посыл</title>
+</head>
+<body>
+    <div id="background"></div>
+    <a href="/" class="back-button">Назад</a>
+    <div class="container">
+        <div id="clock-hourly" class="tooltip">
+            <span id="clock-hourly-time"></span>
+            <span class="tooltiptext">
+                Синхронизированы <br>
+                с часовым поясом <br>
+                Москвы UTC+3
+            </span>
+        </div>
+        <div class="candle-container">
+            <img src="{{ url_for('static', filename='images/candle.gif') }}" alt="Свеча" class="candle">
+        </div>
+    </div>
+    <script src="/static/js/orientation.js"></script>
+    <script src="{{ url_for('static', filename='js/clock.js') }}"></script>
+</body>
+</html>
